@@ -9,7 +9,7 @@ void setup () {
   Serial.begin(115200);
   pinMode(led, OUTPUT);
   digitalWrite(led, LOW);
-  WiFi.begin("hjg", "01051533926");
+  WiFi.begin("ssid", "your password");
  
   while (WiFi.status() != WL_CONNECTED) {
  
@@ -37,11 +37,9 @@ void loop() {
       Serial.println(payload);             //Print the response payload
       if (String(payload) == "on"){
         digitalWrite(led, HIGH);
-        delay(500);
       }
       if (String(payload) == "off"){
         digitalWrite(led, LOW);
-        delay(500);
       }
     }
     else Serial.println("An error ocurred");
@@ -50,6 +48,6 @@ void loop() {
  
   }
  
-  delay(2000);    //Send a request every 10 seconds
+  delay(2000);    //Send a request every 2 seconds
  
 }
